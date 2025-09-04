@@ -38,8 +38,12 @@ def health_check():
 # 앱 실행
 if __name__ == '__main__':
     # 디버그 모드로 실행 (개발 환경에서만 사용)
+    port = int(os.environ.get('PORT', 5000))
     app.run(
         debug=True,
         host='127.0.0.1',
-        port=5000
+        port=port
     )
+    
+    # 또는 포트를 직접 변경하려면:
+    # app.run(debug=True, host='127.0.0.1', port=5001)
